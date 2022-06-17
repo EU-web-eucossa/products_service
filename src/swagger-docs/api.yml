@@ -1,0 +1,29 @@
+swagger: "2.0"
+info:
+    title: "Template API"
+    version: "1.0.0"
+    contact:
+        name: Your name
+        email: "developer@gmail.com"
+basePath: /api/v1
+host: localhost:6200
+schemes:
+    - http
+    - https
+tags:
+    - name: Admin
+
+paths:
+    /todos:
+        get:
+            responses:
+                200:
+                    description: OK
+            deprecated: false
+            x-42c-no-authentication: false
+            x-42c-mtls: false
+            x-42c-sensitivity: 3
+            x-42c-weight-input: 80
+            x-42c-weight-output: 20
+            x-42c-weight-parameters: 50
+            x-42c-weight-requestBody: 50
