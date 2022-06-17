@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import './eventSubscriber';
+// import './eventSubscriber';
 import app from './app';
 import chalk from 'chalk';
 import { environmentConfig } from './config';
