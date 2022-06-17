@@ -1,4 +1,4 @@
-# Template backend app
+# Eucossa web2 backend backend products serviceapp
 What is entailed in the app?
 - Sockets
 - Ejs views
@@ -14,7 +14,7 @@ What is entailed in the app?
 - Gulp build typescript
 - Environmet
 
-###  Template app setup with TS
+###  Product service app setup with TS
 Check the instructions below to setup your environment
 
 Running project in dev mode
@@ -26,7 +26,7 @@ $ yarn
 ```
 #####
 App domains
-1. [x] Todos
+1. [x] Products
 # Running the project
 To set environment variables
 Make sure to run this before you start development otherwise
