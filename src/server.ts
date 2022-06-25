@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// import './eventSubscriber';
 import app from './app';
 import chalk from 'chalk';
 import { environmentConfig } from './config';
 import expressServer from './express-server';
 import moment from 'moment';
-import socketServer from './socket-server';
 
 
-const server = socketServer({server:expressServer({app})});
+const server = expressServer({app});
 
 server.listen(environmentConfig.PORT, () => {
 	const time = moment(new Date().getTime()).format('LLLL');
