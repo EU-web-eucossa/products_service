@@ -10,7 +10,7 @@ servers:
       description: The production API server
       variables:
           username:
-              default: demo
+              default: product-service
               description: eucossa web community
           port:
               enum:
