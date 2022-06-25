@@ -1,18 +1,13 @@
-# Eucossa web2 backend backend products serviceapp
+# Eucossa web2 backend backend products service application
 What is entailed in the app?
 - Sockets
 - Ejs views
 - Cloudinary upload
 - Multer upload
-- Api-route
 - Logging
 - Swagger docs
-- Knex setup for relational databases
-- Mongoose setup for mongodb
-- Express wrapper variable setup and auto update on the script run
 - Gulp copy static assets
 - Gulp build typescript
-- Automated Environment setup
 
 ###  Product service app setup with TS
 Check the instructions below to setup your environment
