@@ -13,9 +13,6 @@ export default function ({ app }: { app: Application }) {
 			},
 		});
 	});
-	app.get('/sockets', (req, res) => {
-		return res.render('socket');
-	});
 
 	app.all('*', (req, res) => {
 		res.status(404).json({

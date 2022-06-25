@@ -10,7 +10,7 @@ const swaggerDocument =
 
 const options = {
 	explorer: true,
-	customSiteTitle: 'ApiTemplateAutomaton app API',
+	customSiteTitle: 'Eucossa 2022 web2 product service',
 };
 
 const swaggerSetup = swaggerUI.setup(swaggerDocument, options);

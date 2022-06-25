@@ -9,10 +9,10 @@ What is entailed in the app?
 - Swagger docs
 - Knex setup for relational databases
 - Mongoose setup for mongodb
-- Express wrappent variable setup and auto update on the script run
+- Express wrapper variable setup and auto update on the script run
 - Gulp copy static assets
 - Gulp build typescript
-- Environmet
+- Automated Environment setup
 
 ###  Product service app setup with TS
 Check the instructions below to setup your environment
@@ -71,6 +71,6 @@ $ yarn start
 ```
 
 ## Note:
-- The app is setup in such a way that you write your modules in the features folder and import them o the `api/v1` folder
+- The app is setup in such a way that you write your modules in the __`features`__ folder and import them o the __`api/v1`__ folder
 - A strict pattern is to befollowed to get the best out of this setup
 
