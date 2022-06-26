@@ -1,4 +1,4 @@
-import { makeCreateTodoEntity } from './todo';
+import { makeCreateTodoEntity } from './product';
 
 const createTodoEntity = makeCreateTodoEntity();
 

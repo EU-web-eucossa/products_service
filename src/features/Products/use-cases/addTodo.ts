@@ -2,7 +2,7 @@ import { ExpressError } from '@eucossa-web2-product-service-common/errors/Expres
 import { ITodo } from '../models/interfaces';
 import { TodoRepositoryType } from '../repository';
 import createTodoEntity from '../entities';
-import TodoModel from '@eucossa-web2-product-service-features/Todo/models';
+import TodoModel from '@eucossa-web2-product-service-features/Products/models';
 
 export function makeAddNewTodoUseCase({
 	repository,

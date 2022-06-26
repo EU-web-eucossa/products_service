@@ -1,9 +1,9 @@
 import { ExpressError } from '@eucossa-web2-product-service-common/errors/ExpressError';
 import { TodoRepositoryType } from '../repository';
-import todoModel from '@eucossa-web2-product-service-features/Todo/models';
+import todoModel from '@eucossa-web2-product-service-features/Products/models';
 import validateMongodbId from '@eucossa-web2-product-service-utils/mongo/ObjectId-validator';
 
-export function makeListTodoByIdUseCase({
+export function makeRemoveTodoByIdUseCase({
 	repository,
 }: {
 	repository: TodoRepositoryType;
@@ -25,17 +25,9 @@ export function makeListTodoByIdUseCase({
 				data: {},
 			});
 		}
-		const response = await repository.findTodoById({
+		const response = await repository.deleteTodo({
 			model: todoModel,
 		})(todoId);
-		if (!response) {
-			throw new ExpressError({
-				message: 'Todo not found',
-				status: 'warning',
-				statusCode: 404,
-				data: {},
-			});
-		}
 
 		return response;
 	};

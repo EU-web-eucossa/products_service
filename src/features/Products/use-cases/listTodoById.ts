@@ -1,16 +1,14 @@
 import { ExpressError } from '@eucossa-web2-product-service-common/errors/ExpressError';
-import { ITodo } from '../models/interfaces';
 import { TodoRepositoryType } from '../repository';
-import createTodoEntity from '../entities';
-import TodoModel from '@eucossa-web2-product-service-features/Todo/models';
+import todoModel from '@eucossa-web2-product-service-features/Products/models';
 import validateMongodbId from '@eucossa-web2-product-service-utils/mongo/ObjectId-validator';
 
-export function makeEditTodoByIdUseCase({
+export function makeListTodoByIdUseCase({
 	repository,
 }: {
 	repository: TodoRepositoryType;
 }) {
-	return async (todoId: string, todoData: ITodo) => {
+	return async (todoId: string) => {
 		if (!todoId) {
 			throw new ExpressError({
 				message: 'Todo ID is required',
@@ -27,10 +25,10 @@ export function makeEditTodoByIdUseCase({
 				data: {},
 			});
 		}
-		const existingTodo = await repository.findTodoById({
-			model: TodoModel,
+		const response = await repository.findTodoById({
+			model: todoModel,
 		})(todoId);
-		if (!existingTodo) {
+		if (!response) {
 			throw new ExpressError({
 				message: 'Todo not found',
 				status: 'warning',
@@ -38,18 +36,6 @@ export function makeEditTodoByIdUseCase({
 				data: {},
 			});
 		}
-		const { getBody, getTitle, getDone, getTime } = await createTodoEntity({
-			...existingTodo._doc,
-			...todoData,
-		});
-		const response = await repository.updateTodoById({
-			model: TodoModel,
-		})(todoId, {
-			title: getTitle(),
-			body: getBody(),
-			done: getDone(),
-			time: getTime(),
-		});
 
 		return response;
 	};

@@ -1,6 +1,6 @@
 import { ExpressError } from '@eucossa-web2-product-service-common/errors/ExpressError';
 import { TodoRepositoryType } from '../repository';
-import studentModel from '@eucossa-web2-product-service-features/Todo/models';
+import studentModel from '@eucossa-web2-product-service-features/Products/models';
 
 export function makeListTodosUseCase({
 	repository,

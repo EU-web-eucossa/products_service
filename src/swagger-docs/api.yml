@@ -39,7 +39,25 @@ servers:
                   - "api/v2"
               default: api/v1
 paths:
-    /product:
+    /products:
+        post:
+            parameters:
+                - name: body
+                  required: true
+                  in: body
+                  schema:
+                      example:
+                          name: Product x for Dev
+                          price: 400.50
+                          image: media
+                          quantity: 30
+                          inStock: true
+                          description: Some product description for product x
+
+            responses:
+                200:
+                    description: OK
+
         get:
             parameters:
                 - name: name
