@@ -8,7 +8,7 @@ import path from 'path';
  */
 const videoStorage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		const uploadPath = path.join(BASE_DIR, 'public/uploads/videos');
+		const uploadPath = path.join(path.dirname(BASE_DIR), 'uploads/videos');
 		createDirectory(uploadPath);
 		cb(null, uploadPath);
 	},
@@ -41,7 +41,7 @@ const videoFileFilters: multer.Options['fileFilter'] = (req, file, cb) => {
  */
 const audioStorage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		const uploadPath = path.join(BASE_DIR, 'public/uploads/audio');
+		const uploadPath = path.join(path.dirname(BASE_DIR), 'uploads/audio');
 		createDirectory(uploadPath);
 		cb(null, uploadPath);
 	},
@@ -76,12 +76,12 @@ const audioFileFilters: multer.Options['fileFilter'] = (req, file, cb) => {
  */
 const imageStorage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		const uploadPath = path.join(BASE_DIR, 'public/uploads/images');
+		const uploadPath = path.join(path.dirname(BASE_DIR), 'uploads/images');
 		createDirectory(uploadPath);
 		cb(null, uploadPath);
 	},
 	filename: (req, file, cb) => {
-		const fileName = `image_file_upload_${new Date().getTime()}${path.extname(
+		const fileName = `product_${new Date().getTime()}${path.extname(
 			file.originalname
 		)}`;
 		cb(null, fileName);
@@ -103,7 +103,7 @@ const imageFilters: multer.Options['fileFilter'] = (req, file, cb) => {
 const imageUpload = multer({
 	storage: imageStorage,
 	fileFilter: imageFilters,
-	limits: { fileSize: 1024 * 1024 * 3 }
+	limits: { fileSize: 1024 * 1024 * 2 }
 });
 
 const videoUpload = multer({

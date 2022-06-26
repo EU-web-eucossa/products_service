@@ -1,51 +1,51 @@
 import { TypeMapper } from '@eucossa-web2-product-service-common/utils';
-import adminRepository from '../repository';
-import { makeAddNewTodoUseCase } from './addTodo';
-import { makeEditTodoByIdUseCase } from './editTodoById';
-import { makeListTodoByTitleUseCase } from './listTodoByTitle';
-import { makeListTodoByIdUseCase } from './listTodoById';
-import { makeListTodosUseCase } from './listTodos';
-import { makeRemoveTodoByIdUseCase } from './removeTodo';
+import { makeAddNewProductUseCase } from './addProduct';
+import { makeEditProductByIdUseCase } from './editProductById';
+import { makeListProductByIdUseCase } from './listProductById';
+import { makeListProductByNameUseCase } from './listProductsByName';
+import { makeListProductsUseCase } from './listProducts';
+import { makeRemoveProductByIdUseCase } from './removeProducts';
+import productRepository from '../repository';
 
-const addNewTodoUseCase = makeAddNewTodoUseCase({
-	repository: adminRepository,
+const addNewProductUseCase = makeAddNewProductUseCase({
+	repository: productRepository,
 });
-const listTodoByTitleUseCase = makeListTodoByTitleUseCase({
-	repository: adminRepository,
+const listProductByNameUseCase = makeListProductByNameUseCase({
+	repository: productRepository,
 });
-const listTodoByIdUseCase = makeListTodoByIdUseCase({
-	repository: adminRepository,
+const listProductByIdUseCase = makeListProductByIdUseCase({
+	repository: productRepository,
 });
-const listTodosUseCase = makeListTodosUseCase({
-	repository: adminRepository,
+const listProductsUseCase = makeListProductsUseCase({
+	repository: productRepository,
 });
-const removeTodoByIdUseCase = makeRemoveTodoByIdUseCase({
-	repository: adminRepository,
+const removeProductByIdUseCase = makeRemoveProductByIdUseCase({
+	repository: productRepository,
 });
-const editTodoByIdUseCase = makeEditTodoByIdUseCase({
-	repository: adminRepository,
+const editProductByIdUseCase = makeEditProductByIdUseCase({
+	repository: productRepository,
 });
 
 export {
-	addNewTodoUseCase,
-	listTodoByTitleUseCase,
-	listTodoByIdUseCase,
-	listTodosUseCase,
-	removeTodoByIdUseCase,
-	editTodoByIdUseCase,
+	addNewProductUseCase,
+	listProductByNameUseCase,
+	listProductByIdUseCase,
+	listProductsUseCase,
+	removeProductByIdUseCase,
+	editProductByIdUseCase,
 };
 
-const todoUseCases = Object.freeze({
-	addNewTodoUseCase,
-	listTodoByTitleUseCase,
-	listTodoByIdUseCase,
-	listTodosUseCase,
-	removeTodoByIdUseCase,
-	editTodoByIdUseCase,
+const productUseCases = Object.freeze({
+	addNewProductUseCase,
+	listProductByNameUseCase,
+	listProductByIdUseCase,
+	listProductsUseCase,
+	removeProductByIdUseCase,
+	editProductByIdUseCase,
 });
 
-type useCases = typeof todoUseCases;
+type useCases = typeof productUseCases;
 
-export type TodoUseCasesType = TypeMapper<useCases>
+export type ProductUseCasesType = TypeMapper<useCases>
 
-export default todoUseCases;
+export default productUseCases;

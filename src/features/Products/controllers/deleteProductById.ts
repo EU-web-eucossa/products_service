@@ -1,16 +1,15 @@
-import { TodoUseCasesType } from '../use-cases';
+import { ProductUseCasesType } from '../use-cases';
 import { INext, IRequest, IResponse } from '@eucossa-web2-product-service-common/types';
 
 type Props = {
-	useCase: TodoUseCasesType;
+	useCase: ProductUseCasesType;
 };
 
-export function makeUpdateTodoByIdController({ useCase }: Props) {
+export function makeDeleteProductByIdController({ useCase }: Props) {
 	return async (req: IRequest, res: IResponse, next: INext) => {
 		try {
-			const response = await useCase.editTodoByIdUseCase(
+			const response = await useCase.removeProductByIdUseCase(
 				req.params.id,
-				req.body,
 			);
 
 			return res.status(200).json({ data: response });

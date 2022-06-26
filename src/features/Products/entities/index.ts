@@ -1,10 +1,10 @@
-import { makeCreateTodoEntity } from './product';
+import { makeCreateProductEntity } from './product';
 
-const createTodoEntity = makeCreateTodoEntity();
+const createProductEntity = makeCreateProductEntity();
 
-export { createTodoEntity };
+export { createProductEntity };
 
-export type createTodoEntityType = typeof createTodoEntity
+export type createProductEntityType = typeof createProductEntity
 
-export default createTodoEntity;
+export default createProductEntity;
 // export type UserInfoValidator = typeof Validate

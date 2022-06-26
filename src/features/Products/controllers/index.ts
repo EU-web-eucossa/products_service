@@ -1,53 +1,53 @@
 import { TypeMapper } from '@eucossa-web2-product-service-common/utils';
-import { makeCreateTodoController } from './createTodo';
-import { makeDeleteTodoByIdController } from './deleteTodoById';
-import { makeFindTodoByTitleController } from './findTodoByTitle';
-import { makeFindTodoByIdController } from './findTodoById';
-import { makeFindTodosController } from './findTodos';
-import { makeUpdateTodoByIdController } from './updateTodoById';
+import { makeCreateProductController } from './createProduct';
+import { makeDeleteProductByIdController } from './deleteProductById';
+import { makeFindProductByIdController } from './findProductById';
+import { makeFindProductByNameController } from './findProductByName';
+import { makeFindProductsController } from './findProducts';
+import { makeUpdateProductByIdController } from './updateProductById';
 import useCase from '../use-cases';
 
-const createTodoController = makeCreateTodoController({
+const createProductController = makeCreateProductController({
 	useCase,
 });
-const deleteTodoByIdController = makeDeleteTodoByIdController({
+const deleteProductByIdController = makeDeleteProductByIdController({
 	useCase,
 });
-const findTodoByTitleController = makeFindTodoByTitleController({
+const findProductByNameController = makeFindProductByNameController({
 	useCase,
 });
-const findTodoByIdController = makeFindTodoByIdController({
+const findProductByIdController = makeFindProductByIdController({
 	useCase,
 });
 
-const findTodosController = makeFindTodosController({
+const findProductsController = makeFindProductsController({
 	useCase,
 });
-const updateTodoByIdController = makeUpdateTodoByIdController({
+const updateProductByIdController = makeUpdateProductByIdController({
 	useCase,
 });
 
 export {
-	createTodoController,
-	deleteTodoByIdController,
-	findTodoByTitleController,
-	findTodoByIdController,
-	findTodosController,
-	updateTodoByIdController,
+	createProductController,
+	deleteProductByIdController,
+	findProductByNameController,
+	findProductByIdController,
+	findProductsController,
+	updateProductByIdController,
 };
 
-const TodoController = Object.freeze({
-	createTodoController,
-	deleteTodoByIdController,
-	findTodoByTitleController,
-	findTodoByIdController,
-	findTodosController,
-	updateTodoByIdController,
+const productController = Object.freeze({
+	createProductController,
+	deleteProductByIdController,
+	findProductByNameController,
+	findProductByIdController,
+	findProductsController,
+	updateProductByIdController,
 });
 
-type controllerType = typeof TodoController;
+type controllerType = typeof productController;
 
-export default TodoController;
+export default productController;
 
-export type TodoControllerType =
+export type ProductControllerType =
 	TypeMapper<controllerType>[keyof controllerType];

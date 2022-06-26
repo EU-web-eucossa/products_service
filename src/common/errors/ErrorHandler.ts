@@ -2,45 +2,55 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ExpressError } from './ExpressError';
 import { capitalize } from 'string-shuffle';
-import { INext, IRequest, IResponse } from '@eucossa-web2-product-service-common/types';
+import {
+	INext,
+	IRequest,
+	IResponse,
+} from '@eucossa-web2-product-service-common/types';
 
-export default function (err: any, req: IRequest, res: IResponse, next: INext){
+export default function (err: any, req: IRequest, res: IResponse, next: INext) {
 	if (err instanceof ExpressError) {
 		const error = err as ExpressError;
 
 		return res.status(error.statusCode).json({
-			...error
+			...error,
 		});
 	}
 	if (err.name === 'ValidationError') {
 		const error: string[] = [];
-		for (const key of Object.keys(err['errors'])) 
+		for (const key of Object.keys(err['errors']))
 			error.push(`${capitalize(key)} field is required`);
-		
+
 		return res.status(400).json({
 			data: {
-				error
+				error,
 			},
 			status: 'error',
-			message: 'Invalid inputs'
+			message: 'Invalid inputs',
 		});
 	}
 	if (err.code === 11000) {
 		let error = '';
 		const x: { [x: string]: any } = err['keyValue'];
-		for (const key of Object.keys(x)) 
+		for (const key of Object.keys(x))
 			error += `${capitalize(key)} ${x[key]} already exists`;
-		
+
 		return res.status(409).json({
 			status: 'error',
 			message: 'Duplicate entry',
-			data: { error }
+			data: { error },
 		});
 	}
+	console.log(
+		JSON.stringify({
+			code: err.code,
+			message: err.message,
+		}),
+	);
 
 	return res.status(500).json({
 		status: 'error',
 		message: err.message ? err.message : 'Internal server error',
-		data: {}
+		data: {},
 	});
 }

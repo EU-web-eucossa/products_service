@@ -3,7 +3,7 @@
 import { ExpressError } from '@eucossa-web2-product-service-common/errors/ExpressError';
 import { IProduct } from '../models/interfaces';
 
-export function makeCreateTodoEntity() {
+export function makeCreateProductEntity() {
 	return async ({
 		description,
 		imageUrl,
@@ -59,6 +59,7 @@ export function makeCreateTodoEntity() {
 			getImageUrl: () => imageUrl,
 			getSlugName: () => slug_name,
 			getDescription: () => description,
+			getQuantity: () => quantity,
 		});
 	};
 }

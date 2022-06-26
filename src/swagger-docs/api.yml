@@ -53,6 +53,22 @@ paths:
                           quantity: 30
                           inStock: true
                           description: Some product description for product x
+            # requestBody:
+            #     content:
+            #         application/json:
+            #             example:
+            #                 name: Product x for Dev
+            #                 price: 400.50
+            #                 image: media
+            #                 quantity: 30
+            #                 inStock: true
+            #                 description: Some product description for product x
+                    # multipart/form-data:
+                    #     # examples
+                    #         # $ref: '#/components/schemas/Product'
+                    #     schema:
+                    #         $ref: '#/components/schemas/Product'
+
 
             responses:
                 200:
