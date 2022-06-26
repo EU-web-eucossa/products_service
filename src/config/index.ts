@@ -1,28 +1,21 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import config from '../../node.config';
+import { nodeConfig } from '../node.config';
 
 const {
-	ENV,
-	DB: { MONGOOSE: mongoConfig, POSTGRESQL: pgConfig, MYSQL: mysqlConfig },
-	PATHS: { BASE_DIR },
-	MAIL,
-	CLOUDINARY,
-	REDIS,
-} = config;
-const mongoUrl =
-	ENV.NODE_ENV === 'development'
-		? mongoConfig.DATABASE_URL
-		: ENV.NODE_ENV === 'production'
-			? mongoConfig.DATABASE_URL
-			: mongoConfig.TEST_DB_URL;
+	env: { env, host, port, apiVersion, secretKey },
+	db: { mongo: mongoConfig },
+	path: { baseDir },
+	cloudinary: cloudinaryConfig,
+	network: networkConfig,
+} = nodeConfig;
 
 export {
-	mongoUrl,
-	MAIL as mailConfig,
-	ENV as environmentConfig,
-	CLOUDINARY as cloudinaryConfig,
-	BASE_DIR,
-	pgConfig,
-	mysqlConfig,
-	REDIS as redisConfig,
+	env,
+	host,
+	port,
+	mongoConfig,
+	baseDir,
+	apiVersion,
+	secretKey,
+	cloudinaryConfig,
+	networkConfig,
 };
