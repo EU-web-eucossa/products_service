@@ -15,7 +15,6 @@
     "copy:views": "gulp copy:views",
     "lint:fix": "eslint .  --ext .ts --fix",
     "prebuild": "yarn lint:fix",
-    "env:set": "gulp env:set",
     "build": "rimraf ./dist && rimraf ./build &&  gulp build",
     "postbuild": "gulp copy:views && gulp copy:favicon",
     "test": "jest --coverage -u",
