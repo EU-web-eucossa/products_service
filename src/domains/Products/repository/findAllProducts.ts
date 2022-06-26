@@ -1,4 +1,4 @@
-import { productModelType } from '@eucossa-web2-product-service-features/Products/models';
+import { productModelType } from '../models';
 
 export async function findAllProducts({ model }: { model: productModelType }) {
 	return async () => {
