@@ -1,11 +1,11 @@
-import { BASE_DIR } from '@eucossa-web2-product-service-config';
+import { baseDir } from '@eucossa-web2-product-service-config';
 import copy from 'gulp-copy';
 import gulp from 'gulp';
 import path from 'path';
 
 const copyFavicon = () => {
-	const source = path.join(BASE_DIR, '/favicon/*');
-	const destination = path.join(path.dirname(BASE_DIR), 'build', 'src','favicon');
+	const source = path.join(baseDir, '/favicon/*');
+	const destination = path.join(path.dirname(baseDir), 'build', 'src','favicon');
 	const compiled = gulp
 		.src(source)
 		.pipe(copy(destination, { prefix: 2 }));

@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import products from '@eucossa-web2-product-service-features/Products';
-import testRoute from './testRoute';
-import { swaggerServe, swaggerSetup } from '@eucossa-web2-product-service-utils/docs';
+import { loadProductsDomain } from '@eucossa-web2-product-service-domains/Products';
+import { loadTestDomain } from '@eucossa-web2-product-service-domains/testDomain';
+import swagger from '@eucossa-web2-product-service-swagger';
 
-export default function () {
-	const apiRoute = Router();
-	apiRoute.get('/test', testRoute);
-	products({ app: apiRoute, pathName: '/products' });
-	apiRoute.use('/docs', swaggerServe, swaggerSetup);
+export default () => {
+	const router = Router();
+	swagger({ app: router });
+	loadTestDomain({ app: router });
+	loadProductsDomain({ app: router });
 
-	return apiRoute;
-}
+	return router;
+};
