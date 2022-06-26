@@ -10,7 +10,9 @@ servers:
     description: The production API server
     variables:
       username:
-        default: product-service
+        enum:
+          - "https://eucossa-product-microservice.herokuapp.com"
+        default: "https://eucossa-product-microservice.herokuapp.com"
         description: eucossa web community
       port:
         enum:
