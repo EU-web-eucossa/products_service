@@ -4,8 +4,8 @@ import gulp from 'gulp';
 import path from 'path';
 
 const copyAssets = () => {
-	const source = path.join(baseDir, '/views/*');
-	const destination = path.join(path.dirname(baseDir), 'build', 'src','views');
+	const source = path.join(baseDir, 'src/views/*');
+	const destination = path.join(baseDir, 'build', 'src','views');
 	const compiled = gulp
 		.src(source)
 		.pipe(copy(destination, { prefix: 2 }));

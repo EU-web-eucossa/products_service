@@ -1,11 +1,20 @@
 import cors from 'cors';
 import errorandler from './errorandler';
 import express from 'express';
+import favicon from 'serve-favicon';
 import helmet from 'helmet';
+import path from 'path';
 import unmapped from './unmapped';
 import v1 from '@eucossa-web2-product-service-api/v1';
-import { apiVersion, host } from '@eucossa-web2-product-service-config';
-import { requestErrorLogger, requestLogger } from '@eucossa-web2-product-service-logger';
+import {
+	apiVersion,
+	baseDir,
+	host,
+} from '@eucossa-web2-product-service-config';
+import {
+	requestErrorLogger,
+	requestLogger,
+} from '@eucossa-web2-product-service-logger';
 
 /**
  * @Author: Felix Orinda
@@ -21,6 +30,9 @@ import { requestErrorLogger, requestLogger } from '@eucossa-web2-product-service
 export default ({ app }: { app: express.Application }): void => {
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: true }));
+	app.use(
+		favicon(path.join(baseDir, 'src', 'public', 'favicon', 'favicon.ico')),
+	);
 	app.set('trust proxy', 1);
 	app.set('x-powered-by', false);
 	app.set('etag', 'strong');
