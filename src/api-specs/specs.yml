@@ -6,13 +6,13 @@ tags:
   - name: Product
     description: Product item for e-commerce store
 servers:
-  - url: https://{username}:{port}/{basePath}
+  - url: https://{username}/{basePath}
     description: The production API server
     variables:
       username:
         enum:
-          - "https://eucossa-product-microservice.herokuapp.com"
-        default: "https://eucossa-product-microservice.herokuapp.com"
+          - "eucossa-product-microservice.herokuapp.com"
+        default: "eucossa-product-microservice.herokuapp.com"
         description: eucossa web community
       port:
         enum:
