@@ -4,12 +4,15 @@ import gulp from 'gulp';
 import path from 'path';
 
 const copyDocs = () => {
-	const source = path.join(baseDir, '/api-specs/*');
-	const destination = path.join(path.dirname(baseDir), 'build', 'src','api-specs');
-	const compiled = gulp
-		.src(source)
-		.pipe(copy(destination, { prefix: 2 }));
-		// .pipe(gulp.dest(destination));
+	const source = path.join(baseDir, 'src/api-specs/*');
+	const destination = path.join(
+		baseDir,
+		'build',
+		'src',
+		'api-specs',
+	);
+	const compiled = gulp.src(source).pipe(copy(destination, { prefix: 2 }));
+	// .pipe(gulp.dest(destination));
 
 	return compiled;
 };
