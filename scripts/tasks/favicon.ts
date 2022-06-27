@@ -4,8 +4,8 @@ import gulp from 'gulp';
 import path from 'path';
 
 const copyFavicon = () => {
-	const source = path.join(baseDir, 'src/favicon/*');
-	const destination = path.join(baseDir, 'build', 'src','favicon');
+	const source = path.join(baseDir, 'src/public/favicon/*');
+	const destination = path.join(baseDir, 'build', 'src','public');
 	const compiled = gulp
 		.src(source)
 		.pipe(copy(destination, { prefix: 2 }));
