@@ -6,14 +6,13 @@ const storage = multer.memoryStorage();
 export default multer({
 	storage,
 	limits: {
-		fileSize: 5 * 1024 * 1024, // 5MB
+		fileSize: 1 * 1024 * 1024, // 1MB
 	},
 	fileFilter(req, file, callback) {
 		const allowedTypes = [
 			'image/jpeg',
 			'image/jpg',
 			'image/png',
-			'image/gif',
 			'image/webp',
 		];
 		if (allowedTypes.includes(file.mimetype)) callback(null, true);
