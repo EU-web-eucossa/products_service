@@ -6,6 +6,7 @@ const {
 	path: { baseDir },
 	cloudinary: cloudinaryConfig,
 	network: networkConfig,
+	rabbitmq:rabbitmqConfig
 } = nodeConfig;
 
 export {
@@ -18,4 +19,5 @@ export {
 	secretKey,
 	cloudinaryConfig,
 	networkConfig,
+	rabbitmqConfig
 };

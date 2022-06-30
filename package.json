@@ -32,6 +32,8 @@
   "author": "Orinda Felix Ochieng <forinda82@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "amqp": "^0.2.7",
+    "amqplib-as-promised": "^4.1.0",
     "bcryptjs": "^2.4.3",
     "chalk": "^4.1.2",
     "cloudinary": "^1.30.0",
